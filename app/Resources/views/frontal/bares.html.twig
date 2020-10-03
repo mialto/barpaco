@@ -1,0 +1,112 @@
+{# plantilla de nuestra aplicacion #}
+{% extends 'base.html.twig' %}
+
+{# TITULO DE LA PAGINA #}
+{% block titulo %}Contacto{% endblock %}
+
+{# CONTENIDO #}
+{% block contenido %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Bar de Paco
+        <small>Bares</small>
+        </h1>
+        {% if sitio=='vlc' or sitio=='todos' %}
+            <!-- Content Row -->
+            <div class="row">
+            <!-- Map Column -->
+            <div class="col-lg-8 mb-4">
+                <!-- Embedded Google Map -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12319.58076302579!2d-0.3876462558899318!3d39.47169642752072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604f4da05ac049%3A0xca8eb234a8fcd3c3!2sAlmalibre%20A%C3%A7a%C3%AD%20House%20Valencia!5e0!3m2!1ses!2ses!4v1601460148540!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-lg-4 mb-4">
+                <h3>Contacto</h3>
+                <p>
+                3481 Valencia
+                <br>Beverly Hills, CA 90210
+                <br>
+                </p>
+                <p>
+                <abbr title="Phone">P</abbr>: (123) 456-7890
+                </p>
+                <p>
+                <abbr title="Email">E</abbr>:
+                <a href="mailto:name@example.com">name@example.com
+                </a>
+                </p>
+                <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+                </p>
+            </div>
+            </div>
+            <!-- /.row -->
+        {% endif %}
+        {% if sitio=='bcn' or sitio=='todos' %}
+            <!-- Content Row -->
+            <div class="row">
+            <!-- Map Column -->
+            <div class="col-lg-8 mb-4">
+                <!-- Embedded Google Map -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23952.26122066322!2d2.1403554993836673!3d41.373375296129446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49976aee58965%3A0x5da0feb97f478f45!2sTataki%20Ramen!5e0!3m2!1ses!2ses!4v1601460222201!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-lg-4 mb-4">
+                <h3>Contacto</h3>
+                <p>
+                3481 Barcelona
+                <br>Beverly Hills, CA 90210
+                <br>
+                </p>
+                <p>
+                <abbr title="Phone">P</abbr>: (123) 456-7890
+                </p>
+                <p>
+                <abbr title="Email">E</abbr>:
+                <a href="mailto:name@example.com">name@example.com
+                </a>
+                </p>
+                <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+                </p>
+            </div>
+            </div>
+            <!-- /.row -->
+        {% endif %}
+        {% if sitio=='mdr' or sitio=='todos' %}
+            <!-- Content Row -->
+            <div class="row">
+            <!-- Map Column -->
+            <div class="col-lg-8 mb-4">
+                <!-- Embedded Google Map -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24302.97880067958!2d-3.70486024996984!3d40.41167855001027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422885e0da6785%3A0x41013c96d204bfea!2sLa%20Cocina%20de%20San%20Ant%C3%B3n!5e0!3m2!1ses!2ses!4v1601460323653!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+            <!-- Contact Details Column -->
+            <div class="col-lg-4 mb-4">
+                <h3>Contacto</h3>
+                <p>
+                3481 Madrid
+                <br>Beverly Hills, CA 90210
+                <br>
+                </p>
+                <p>
+                <abbr title="Phone">P</abbr>: (123) 456-7890
+                </p>
+                <p>
+                <abbr title="Email">E</abbr>:
+                <a href="mailto:name@example.com">name@example.com
+                </a>
+                </p>
+                <p>
+                <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+                </p>
+            </div>
+            </div>
+            <!-- /.row -->
+        {% endif %}
+
+    </div>
+    <!-- /.container -->
+{% endblock %}
