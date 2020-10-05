@@ -16,7 +16,8 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         //capturamos el repositorio de la tabla contra la BBDD
-        //$repository = $this->getDoctrine()->getRepository(Tapa::class);
+        $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
+        $tapas = $tapaRepository->findAll();
         // replace this example code with whatever you need
         return $this->render('frontal/index.html.twig');
     }
