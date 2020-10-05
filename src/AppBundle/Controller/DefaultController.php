@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+use AppBundle\Entity\Tapa;
+
 class DefaultController extends Controller
 {
     /**
@@ -13,6 +15,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        //capturamos el repositorio de la tabla contra la BBDD
+        //$repository = $this->getDoctrine()->getRepository(Tapa::class);
         // replace this example code with whatever you need
         return $this->render('frontal/index.html.twig');
     }
