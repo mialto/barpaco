@@ -1,0 +1,12 @@
+{# plantilla de nuestra aplicacion #}
+{% extends 'base.html.twig' %}
+
+{# TITULO DE LA PAGINA #}
+{% block titulo %}Nueva tapa{% endblock %}
+
+{# CONTENIDO #}
+{% block contenido %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
