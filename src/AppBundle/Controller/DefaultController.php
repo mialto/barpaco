@@ -19,7 +19,7 @@ class DefaultController extends Controller
         $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
         $tapas = $tapaRepository->findAll();
         // replace this example code with whatever you need
-        return $this->render('frontal/index.html.twig');
+        return $this->render('frontal/index.html.twig', array('tapas'=>$tapas));
     }
 
     /**

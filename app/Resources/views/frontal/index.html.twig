@@ -49,45 +49,22 @@
 
     <div class="container">
         <!-- Portfolio Section -->
-        <h1 class="my-4">Nuestras tapas</h1>
+        <h1 class="my-4">Nuestras mejores tapas</h1>
 
         <div class="row">
-            
-            
-            
+        {% for tapa in tapas %}
             <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                <h4 class="card-title">
-                    <a href="#">Project Four</a>
-                </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="#">{{ tapa.nombre }}</a>
+                    </h4>
+                    <p class="card-text">{{ tapa.descripcion }}</p>
+                    </div>
                 </div>
             </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                <h4 class="card-title">
-                    <a href="#">Project Five</a>
-                </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                </div>
-            </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                <h4 class="card-title">
-                    <a href="#">Project Six</a>
-                </h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-                </div>
-            </div>
-            </div>
+        {% endfor %}    
         </div>
         <!-- /.row -->
     </div>
