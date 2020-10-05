@@ -17,7 +17,7 @@ class DefaultController extends Controller
     {
         //capturamos el repositorio de la tabla contra la BBDD
         $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
-        $tapas = $tapaRepository->findAll();
+        $tapas = $tapaRepository->findByTop(1);
         // replace this example code with whatever you need
         return $this->render('frontal/index.html.twig', array('tapas'=>$tapas));
     }
