@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use AppBundle\Form\TapaType;
 use AppBundle\Entity\Tapa;
 
 /**
@@ -22,16 +23,14 @@ class GestionTapasController extends Controller
      */
     public function nuevaTapaAction(Request $request)
     {
+        if(!is_null($request)){
+            $datos=$request->request->all();
+            var_dump($datos);
+        }
         $tapa = new Tapa();
         //construyendo el formulario
-        $formBuilder = $this->createFormBuilder($tapa);
-        $formBuilder->add('nombre', TextType::class);
-        $formBuilder->add('descripcion', TextAreaType::class);
-        $formBuilder->add('ingredientes', TextareaType::class);
-        $formBuilder->add('fechaCreacion', DateType::class); 
-        $formBuilder->add('save', SubmitType::class, array('label'=>'Crear tapa'));
-
-        $form = $formBuilder->getForm();
+        $form = $this->createForm(TapaType::class, $tapa);
+        
         // replace this example code with whatever you need
         return $this->render('gestionTapas/nuevaTapa.html.twig', array('form'=>$form->createView()));
     }
