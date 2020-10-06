@@ -11,6 +11,10 @@
 {%- block form_widget_simple -%}
     {%- set type = type|default('text') -%}
     <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {%- if type == 'file' -%} 
+        <img id="tapaThumb" class="img-fluid" width="150px" src="" alt="">
+    {%- endif -%}
+
 {%- endblock form_widget_simple -%}
 
 {%- block textarea_widget -%}
