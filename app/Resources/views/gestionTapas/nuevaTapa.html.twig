@@ -1,6 +1,6 @@
 {# plantilla de nuestra aplicacion #}
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'form/tapaForm.html.twig' %}
 {# TITULO DE LA PAGINA #}
 {% block titulo %}Nueva tapa{% endblock %}
 
@@ -9,14 +9,8 @@
 <div class="container">
 <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">Crear nueva tapa</h1>
-
-    <div class="row">
-        <div class="col-md-8">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
-        </div>
-    </div>
-    
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 </div>
 {% endblock %}
