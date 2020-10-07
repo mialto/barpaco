@@ -11,7 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use AppBundle\Form\TapaType;
+use AppBundle\Form\CategoriaType;
 use AppBundle\Entity\Tapa;
+use AppBundle\Entity\Categoria;
 
 /**
  * @Route("/gestionTapas")
@@ -55,6 +57,42 @@ class GestionTapasController extends Controller
         }
         // replace this example code with wmhatever you need
         return $this->render('gestionTapas/nuevaTapa.html.twig', array('form'=>$form->createView()));
+    }
+
+    /**
+     * @Route("/nuevaCategoria", name="nuevaCategoria")
+     */
+    public function nuevaCatAction(Request $request)
+    {
+        $categoria = new Categoria();
+        //construyendo el formulario
+        $form = $this->createForm(CategoriaType::class, $categoria);
+        //Recogemos la informacion del submit
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $categoria = $form->getData();
+            //vamos a tratar la imagen para la subida...
+            $fotoFile=$categoria->getFoto();
+            //ponemos un nombre identificativo y unico
+            $fileName = $this->generateUniqueFileName() . '.' . $fotoFile->guessExtension();
+            //movemos el archivo a la carpeta que queremos
+            $fotoFile->move(
+                $this->getParameter('tapaImg_directory'),
+                $fileName
+            );
+            //tomamos el nombre de la foto para guardarla en la bbdd
+            $categoria->setFoto($fileName);
+
+            //Almacenar nueva categoria
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($categoria);
+            $em->flush();
+    
+            //redirige a la url de la tapa que acabamos de crear
+            return $this->redirectToRoute('categoria', array('id' => $categoria->getId()));
+        }
+        // replace this example code with wmhatever you need
+        return $this->render('gestionTapas/nuevaCategoria.html.twig', array('form'=>$form->createView()));
     }
 
     /**

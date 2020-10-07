@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 use AppBundle\Entity\Tapa;
+use AppBundle\Entity\Categoria;
 
 class DefaultController extends Controller
 {
@@ -50,6 +51,21 @@ class DefaultController extends Controller
             $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
             $tapa = $tapaRepository->find($id);
             return $this->render('frontal/tapa.html.twig', array('tapa'=>$tapa));
+        }else{
+            return $this->redirectToRoute('homepage');
+        }
+    }
+
+    /**
+     * @Route("/categoria/{id}", name="categoria")
+     */
+    public function catAction(Request $request, $id=null)
+    {
+        if($id != null ){
+            //capturamos el repositorio de la tabla contra la BBDD
+            $categoriaRepository = $this->getDoctrine()->getRepository(Categoria::class);
+            $categoria = $categoriaRepository->find($id);
+            return $this->render('frontal/categoria.html.twig', array('categoria'=>$categoria));
         }else{
             return $this->redirectToRoute('homepage');
         }
