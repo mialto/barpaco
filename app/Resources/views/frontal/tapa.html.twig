@@ -26,7 +26,9 @@
             <h3 class="my-3">{{ tapa.nombre }}</h3>
             <p>{{ tapa.descripcion}}</p>
             <h3 class="my-3">Ingredientes:</h3>
-            {{ tapa.ingredientes }}
+            {% for ingrediente in  tapa.ingredientes %}
+            {{ ingrediente }}<br>
+            {% endfor %}
         </div>
 
         </div>

@@ -62,4 +62,8 @@ class Ingrediente
     {
         return $this->nombre;
     }
+    //conversion a cadena
+    public function __toString(){
+        return $this->nombre;
+    }
 }

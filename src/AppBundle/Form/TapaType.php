@@ -22,7 +22,7 @@ class TapaType extends AbstractType
         $builder
             ->add('nombre', TextType::class)
             ->add('descripcion', CKEditorType::class)
-            ->add('ingredientes', TextareaType::class)
+            ->add('ingredientes', EntityType::class, array('class' => 'AppBundle:Ingrediente', 'multiple' => true))
             ->add('categoria', EntityType::class, array('class' => 'AppBundle:Categoria'))
             ->add('foto', FileType::class, array('attr'=> array('onchange'=>'onChange(event)')))
             ->add('top')
