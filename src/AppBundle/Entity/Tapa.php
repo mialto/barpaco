@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="tapa")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TapaRepository")
  */
-class Tapa
+final class Tapa
 {
     /**
      * @var int

@@ -9,19 +9,23 @@ use Symfony\Component\Routing\Annotation\Route;
 use AppBundle\Entity\Tapa;
 use AppBundle\Entity\Categoria;
 use AppBundle\Entity\Ingrediente;
+use AppBundle\Repository\TapaRepository;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{pagina}", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $pagina=1)
     {
+        $numTapas=3;
         //capturamos el repositorio de la tabla contra la BBDD
-        $tapaRepository = $this->getDoctrine()->getRepository(Tapa::class);
-        $tapas = $tapaRepository->findByTop(1);
+        $tapaRepository = $this->getDoctrine()->getEntityManager()->getRepository(Tapa::class);
+        //$tapas = $tapaRepository->findByTop(1);
+        $tapas = $tapaRepository->paginaTapas($numTapas, $pagina);
+        
         // replace this example code with whatever you need
-        return $this->render('frontal/index.html.twig', array('tapas'=>$tapas));
+        return $this->render('frontal/index.html.twig', array('tapas'=>$tapas, 'paginaActual'=>$pagina));
     }
 
     /**
